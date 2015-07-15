@@ -1,2 +1,2 @@
-# tutasimpeg
-Tuta Sistem Informasi Pegawai
+# TutaSIMPEG
+Tuta Sistem Informasi Kepegawaian Berbasis Web
