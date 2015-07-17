@@ -1,2 +1,2 @@
 # TutaSIMPEG
-Tuta Sistem Informasi Kepegawaian Berbasis Web
+Tuta Sistem Informasi Manajemen Kepegawaian Berbasis Web
