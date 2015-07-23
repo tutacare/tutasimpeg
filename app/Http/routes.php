@@ -17,6 +17,17 @@ Route::get('dashboard', 'DashboardController@index');
 Route::resource('kartu-induk-pegawai', 'KartuIndukPegawaiController');
 Route::get('api/kartu-induk-pegawai/{id}', 'KartuIndukPegawaiController@getApi');
 Route::get('api/kartu-induk-pegawai', 'KartuIndukPegawaiController@getApiAja');
+Route::post('kartu-induk-pegawai/search', 'KartuIndukPegawaiController@search');
+Route::get('kartu-induk-pegawai/{id}/jabatan', 'KartuIndukPegawaiController@jabatan');
+Route::get('kartu-induk-pegawai/{id}/riwayat', 'KartuIndukPegawaiController@riwayat');
+Route::resource('jabatan', 'JabatanController');
+
+Route::resource('riwayat-pendidikan', 'RiwayatPendidikanController');
+Route::resource('riwayat-pangkat', 'RiwayatPangkatController');
+//Route::get('riwayat-pendidikan', 'RiwayatPendidikanController@index');
+//Route::get('riwayat-pendidikan/create', 'RiwayatPendidikanController@create');
+//Route::post('riwayat-pendidikan/store', 'RiwayatPendidikanController@store');
+
 Route::get('testing/2/3', 'KartuIndukPegawaiController@testing');
 
 // Authentication routes...

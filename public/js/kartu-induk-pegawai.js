@@ -10,6 +10,10 @@ jQuery( document ).ready(function( $ ) {
       { dateFormat: 'dd-mm-yy',
         changeMonth: true,
         changeYear: true});
+    $( "#tmt_pangkat" ).datepicker(
+      { dateFormat: 'dd-mm-yy',
+        changeMonth: true,
+        changeYear: true});
   });
 
 });

@@ -7,7 +7,22 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Kartu Induk Pegawai</div>
 				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-6">
           <a class="btn btn-small btn-success" href="{{ URL::to('kartu-induk-pegawai/create') }}">Buat Baru</a>
+						</div>
+						<div class="col-md-6">
+							{!! Form::open(array('url' => 'kartu-induk-pegawai/search', 'class' => 'form-inline')) !!}
+					<div class="form-group pull-right">
+						<label for="pencarian">Pencarian</label>
+					{!! Form::text('query', Input::old('query'), array('class' => 'form-control', 'required' => 'required')) !!}
+					<button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+					</div>
+
+
+				{!! Form::close() !!}
+				</div>
+			</div>
   				<hr />
 					@if (Session::has('message'))
 	        <div class="col-md-12">
@@ -22,9 +37,10 @@
                   <tr>
                       <td>NIP</td>
                       <td>Nama</td>
-											<td>tgl_masuk_pegawai</td>
-											<td>tgl_pensiun</td>
-                      <td colspan="2">&nbsp;</td>
+											<td>Jabatan</td>
+											<td>Riwayat</td>
+                      <td>Ganti</td>
+											<td>Hapus</td>
                   </tr>
               </thead>
               <tbody>
@@ -32,9 +48,9 @@
                   <tr>
                       <td>{{ $value->nip }}</td>
                       <td>{{ $value->nama_lengkap }}</td>
-											<td>{{ date('d-m-Y', strtotime($value->tgl_masuk_pegawai)) }}</td>
-											<td>{{ $value->tgl_pensiun }}</td>
-                      <td>
+											<td><a class="btn btn-xs btn-warning" href="{{ URL::to('kartu-induk-pegawai/' . $value->id . '/jabatan') }}"><span class="glyphicon glyphicon-queen" aria-hidden="true"></span></a></td>
+                      <td><a class="btn btn-xs btn-success" href="{{ URL::to('kartu-induk-pegawai/' . $value->id . '/riwayat') }}"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></a></td>
+											<td>
                           <a class="btn btn-xs btn-info" href="{{ URL::to('kartu-induk-pegawai/' . $value->id . '/edit') }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                         </td><td>
 

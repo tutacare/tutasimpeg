@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\KartuIndukPegawai;
+use App\KartuIndukPegawai, App\Jabatan;
 use Input, Session, Redirect, Response;
 use App\Http\Requests\KartuIndukPegawaiRequest;
 use Image;
@@ -79,6 +79,11 @@ class KartuIndukPegawaiController extends Controller
         $kartu_induk_pegawai_fotos->foto = $fotoName;
         $kartu_induk_pegawai_fotos->save();
       }
+
+      //process jabatan
+      $jabatans = new Jabatan;
+      $jabatans->kartu_induk_pegawai_id = $kartu_induk_pegawais->id;
+      $jabatans->save();
 
       Session::flash('message', 'Input Kartu Induk Pegawai NIP: ' . $kartu_induk_pegawais->nip . ' Sukses');
       return Redirect::to('kartu-induk-pegawai/create');
@@ -181,5 +186,32 @@ class KartuIndukPegawaiController extends Controller
     public function testing()
     {
       return view('testing');
+    }
+
+    public function search()
+    {
+      $kartu_induk_pegawais = KartuIndukPegawai::where('nip', 'LIKE', '%'. Input::get('query') .'%')
+      ->orWhere('nama_lengkap', 'LIKE', '%'. Input::get('query') .'%')
+      ->orWhere('tempat_lahir', 'LIKE', '%'. Input::get('query') .'%')
+      ->get();
+      return view('kartu-induk-pegawai.index', [ 'kartu_induk_pegawai' => $kartu_induk_pegawais]);
+    }
+
+    public function jabatan($id)
+    {
+      $kartu_induk_pegawais = KartuIndukPegawai::find($id);
+      $jabatans = Jabatan::where('kartu_induk_pegawai_id', $id)->first();
+      return view('kartu-induk-pegawai.jabatan', [
+        'jabatan' => $jabatans,
+        'kartu_induk_pegawai' => $kartu_induk_pegawais
+        ]);
+    }
+
+    public function riwayat($id)
+    {
+      $kartu_induk_pegawais = KartuIndukPegawai::find($id);
+      return view('kartu-induk-pegawai.riwayat', [
+        'kartu_induk_pegawai' => $kartu_induk_pegawais
+        ]);
     }
 }
