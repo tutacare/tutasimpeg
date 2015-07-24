@@ -16,6 +16,12 @@ jQuery( document ).ready(function( $ ) {
         changeYear: true});
   });
 
+  $(document).ready(function () {
+      $('#iframe').on('load', function () {
+          $('#loader1').hide();
+      });
+  });
+
 });
 
 (function(){

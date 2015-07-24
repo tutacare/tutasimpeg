@@ -22,7 +22,7 @@ class CreateRiwayatPangkatsTable extends Migration
             $table->date('tmt_sk');
             $table->string('masakerja_tahun', 10);
             $table->string('masakerja_bulan', 10);
-            $table->string('keterangan', 255);
+            $table->string('keterangan', 255)->nullable();
             $table->timestamps();
         });
     }

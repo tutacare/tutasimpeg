@@ -1,0 +1,10 @@
+#loader1 {
+  position:absolute;
+  left:45%;
+  top:35%;
+  border-radius:20px;
+  padding:25px;
+  border:1px solid #777777;
+  background:#ffffff;
+  box-shadow:0px 0px 10px #777777;
+}

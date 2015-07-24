@@ -43,6 +43,7 @@
 
     <div role="tabpanel" class="tab-pane active" id="pendidikan">
       <p>
+<img id="loader1" src="http://preloaders.net/preloaders/477/Intersection.gif" width="100" height="100" alt="loading gif"/>
         <iframe src="/riwayat-pendidikan" frameborder="0" width="100%" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);'></iframe>
       </p>
     </div>
