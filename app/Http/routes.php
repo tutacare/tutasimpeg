@@ -24,11 +24,9 @@ Route::resource('jabatan', 'JabatanController');
 
 Route::resource('riwayat-pendidikan', 'RiwayatPendidikanController');
 Route::resource('riwayat-pangkat', 'RiwayatPangkatController');
-//Route::get('riwayat-pendidikan', 'RiwayatPendidikanController@index');
-//Route::get('riwayat-pendidikan/create', 'RiwayatPendidikanController@create');
-//Route::post('riwayat-pendidikan/store', 'RiwayatPendidikanController@store');
+Route::resource('riwayat-jabatan', 'RiwayatJabatanController');
 
-Route::get('testing/2/3', 'KartuIndukPegawaiController@testing');
+//Route::get('testing/2/3', 'KartuIndukPegawaiController@testing');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
