@@ -57,7 +57,11 @@
         <iframe src="/riwayat-jabatan" frameborder="0" width="100%" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);'></iframe>
       </p>
     </div>
-    <div role="tabpanel" class="tab-pane" id="diklat">diklat</div>
+    <div role="tabpanel" class="tab-pane" id="diklat">
+      <p>
+        <iframe src="/riwayat-diklat" frameborder="0" width="100%" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);'></iframe>
+      </p>
+    </div>
     <div role="tabpanel" class="tab-pane" id="suami_istri">suami_istri</div>
     <div role="tabpanel" class="tab-pane" id="anak">Anak</div>
     <div role="tabpanel" class="tab-pane" id="alamat">Alamat</div>

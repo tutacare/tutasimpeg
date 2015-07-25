@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class RiwayatPangkatRequest extends Request
+class RiwayatDiklatRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,12 @@ class RiwayatPangkatRequest extends Request
     public function rules()
     {
         return [
-          'golongan_pangkat' => 'required',
-          'no_sk' => 'required',
-          'tgl_sk' => 'required|date_format:"d-m-Y"',
-          'tmt_sk' => 'required|date_format:"d-m-Y"',
-          'masakerja_tahun' => 'required|numeric',
-          'masakerja_bulan' => 'required|numeric'
+          'nama_diklat' => 'required',
+          'penyelenggara_diklat' => 'required',
+          'tahun_penyelenggaraan' => 'required',
+          'lama_diklat_bulan' => 'numeric',
+          'lama_diklat_hari' => 'numeric',
+          'lama_diklat_jam' => 'numeric'
         ];
     }
 }

@@ -26,7 +26,7 @@ class RiwayatPendidikanRequest extends Request
         return [
           'nama_sekolah' => 'required',
           'tingkat' => 'required',
-          'tahun_lulus' => 'required'
+          'tahun_lulus' => 'required|numeric'
         ];
     }
 }
