@@ -9,5 +9,17 @@ jQuery( document ).ready(function( $ ) {
       { dateFormat: 'dd-mm-yy',
         changeMonth: true,
         changeYear: true});
+    $( "#tgl_lahir" ).datepicker(
+      { dateFormat: 'dd-mm-yy',
+        changeMonth: true,
+        changeYear: true});
+    $( "#tgl_nikah" ).datepicker(
+      { dateFormat: 'dd-mm-yy',
+        changeMonth: true,
+        changeYear: true});
+    $( "#tgl_pisah" ).datepicker(
+      { dateFormat: 'dd-mm-yy',
+        changeMonth: true,
+        changeYear: true});
   });
 });
