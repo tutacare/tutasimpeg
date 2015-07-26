@@ -72,7 +72,11 @@
         <iframe src="/riwayat-anak" frameborder="0" width="100%" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);'></iframe>
       </p>
     </div>
-    <div role="tabpanel" class="tab-pane" id="alamat">Alamat</div>
+    <div role="tabpanel" class="tab-pane" id="alamat">
+      <p>
+        <iframe src="/riwayat-alamat" frameborder="0" width="100%" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);'></iframe>
+      </p>
+    </div>
   </div>
 
 </div>
