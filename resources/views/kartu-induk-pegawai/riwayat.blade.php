@@ -67,7 +67,11 @@
         <iframe src="/riwayat-suami-istri" frameborder="0" width="100%" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);'></iframe>
       </p>
     </div>
-    <div role="tabpanel" class="tab-pane" id="anak">Anak</div>
+    <div role="tabpanel" class="tab-pane" id="anak">
+      <p>
+        <iframe src="/riwayat-anak" frameborder="0" width="100%" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);'></iframe>
+      </p>
+    </div>
     <div role="tabpanel" class="tab-pane" id="alamat">Alamat</div>
   </div>
 

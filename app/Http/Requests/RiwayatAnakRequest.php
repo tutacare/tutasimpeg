@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class RiwayatSuamiIstriRequest extends Request
+class RiwayatAnakRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +25,9 @@ class RiwayatSuamiIstriRequest extends Request
     {
         return [
           'nama' => 'required',
+          'jenis_kelamin' => 'required',
           'tgl_lahir' => 'required|date_format:"d-m-Y"',
-          'tgl_nikah' => 'required|date_format:"d-m-Y"',
-          'tgl_pisah' => 'date_format:"d-m-Y"'
+          'status_anak' => 'required'
         ];
     }
 }

@@ -27,6 +27,7 @@ Route::resource('riwayat-pangkat', 'RiwayatPangkatController');
 Route::resource('riwayat-jabatan', 'RiwayatJabatanController');
 Route::resource('riwayat-diklat', 'RiwayatDiklatController');
 Route::resource('riwayat-suami-istri', 'RiwayatSuamiIstriController');
+Route::resource('riwayat-anak', 'RiwayatAnakController');
 
 //Route::get('testing/2/3', 'KartuIndukPegawaiController@testing');
 
