@@ -23,7 +23,7 @@ class RiwayatPendidikanController extends Controller
      */
     public function index()
     {
-        $riwayat_pendidikans = RiwayatPendidikan::all();
+        $riwayat_pendidikans = RiwayatPendidikan::where('kartu_induk_pegawai_id', Session::get('ids'))->get();
         return view('riwayat-pendidikan.index', [ 'riwayat_pendidikan' => $riwayat_pendidikans]);
     }
 

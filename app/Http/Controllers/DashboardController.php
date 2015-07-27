@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\KartuIndukPegawai;
 
 class DashboardController extends Controller
 {
@@ -20,7 +21,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        $kartu_induk_pegawais = KartuIndukPegawai::count();
+        return view('dashboard.index', [
+          'pegawai' => $kartu_induk_pegawais
+          ]);
     }
 
     /**

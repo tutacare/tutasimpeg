@@ -35,7 +35,7 @@
 
     <div class="form-group">
 		{!! Form::label('tahun_penyelenggaraan', 'Tahun Penyelenggaraan') !!}
-		{!! Form::text('tahun_penyelenggaraan', Input::old('tahun_penyelenggaraan'), array('class' => 'form-control')) !!}
+		{!! Form::text('tahun_penyelenggaraan', Input::old('tahun_penyelenggaraan'), array('class' => 'form-control', 'maxlength' => '4')) !!}
 		</div>
 
 	</div>

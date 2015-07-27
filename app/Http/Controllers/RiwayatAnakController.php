@@ -23,7 +23,7 @@ class RiwayatAnakController extends Controller
      */
     public function index()
     {
-      $riwayat_anaks = RiwayatAnak::all();
+      $riwayat_anaks = RiwayatAnak::where('kartu_induk_pegawai_id', Session::get('ids'))->get();
       return view('riwayat-anak.index', [ 'riwayat_anak' => $riwayat_anaks]);
     }
 

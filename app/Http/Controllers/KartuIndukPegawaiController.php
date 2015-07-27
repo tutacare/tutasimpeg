@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\KartuIndukPegawai, App\Jabatan;
+use App\RiwayatPendidikan, App\RiwayatPangkat;
+use App\RiwayatJabatan, App\RiwayatDiklat;
+use App\RiwayatSuamiIstri, App\RiwayatAnak;
+use App\RiwayatAlamat;
 use Input, Session, Redirect, Response;
 use App\Http\Requests\KartuIndukPegawaiRequest;
 use Image;
@@ -83,6 +87,7 @@ class KartuIndukPegawaiController extends Controller
       //process jabatan
       $jabatans = new Jabatan;
       $jabatans->kartu_induk_pegawai_id = $kartu_induk_pegawais->id;
+      $jabatans->tmt_pangkat = NULL;
       $jabatans->save();
 
       Session::flash('message', 'Input Kartu Induk Pegawai NIP: ' . $kartu_induk_pegawais->nip . ' Sukses');
@@ -97,7 +102,26 @@ class KartuIndukPegawaiController extends Controller
      */
     public function show($id)
     {
-        //
+      $kartu_induk_pegawais = KartuIndukPegawai::find($id);
+      $jabatans = Jabatan::where('kartu_induk_pegawai_id', $id)->first();
+      $riwayat_pendidikans = RiwayatPendidikan::where('kartu_induk_pegawai_id', $id)->get();
+      $riwayat_pangkats = RiwayatPangkat::where('kartu_induk_pegawai_id', $id)->get();
+      $riwayat_jabatans = Riwayatjabatan::where('kartu_induk_pegawai_id', $id)->get();
+      $riwayat_diklats = RiwayatDiklat::where('kartu_induk_pegawai_id', $id)->get();
+      $riwayat_suami_istris = RiwayatSuamiIstri::where('kartu_induk_pegawai_id', $id)->get();
+      $riwayat_anaks = RiwayatAnak::where('kartu_induk_pegawai_id', $id)->get();
+      $riwayat_alamats = RiwayatAlamat::where('kartu_induk_pegawai_id', $id)->get();
+      return view('kartu-induk-pegawai.show', [
+        'kartu_induk_pegawai' => $kartu_induk_pegawais,
+        'jabatan' => $jabatans,
+        'riwayat_pendidikan' => $riwayat_pendidikans,
+        'riwayat_pangkat' => $riwayat_pangkats,
+        'riwayat_jabatan' => $riwayat_jabatans,
+        'riwayat_diklat' => $riwayat_diklats,
+        'riwayat_suami_istri' => $riwayat_suami_istris,
+        'riwayat_anak' => $riwayat_anaks,
+        'riwayat_alamat' => $riwayat_alamats
+        ]);
     }
 
     /**

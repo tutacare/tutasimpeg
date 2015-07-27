@@ -23,7 +23,7 @@ class RiwayatSuamiIstriController extends Controller
      */
     public function index()
     {
-      $riwayat_suami_istris = RiwayatSuamiIstri::all();
+      $riwayat_suami_istris = RiwayatSuamiIstri::where('kartu_induk_pegawai_id', Session::get('ids'))->get();
       return view('riwayat-suami-istri.index', [ 'riwayat_suami_istri' => $riwayat_suami_istris]);
     }
 

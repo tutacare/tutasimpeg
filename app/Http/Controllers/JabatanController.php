@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\KartuIndukPegawai, App\Jabatan;
 use Input, Session, Redirect, Response;
+use App\Http\Requests\JabatanRequest;
 
 class JabatanController extends Controller
 {
@@ -75,7 +76,7 @@ class JabatanController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(JabatanRequest $request, $id)
     {
       $jabatans = Jabatan::find($id);
       //$jabatans->kartu_induk_pegawai_id = Input::get('id');

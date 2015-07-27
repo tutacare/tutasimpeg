@@ -26,7 +26,7 @@ class RiwayatDiklatRequest extends Request
         return [
           'nama_diklat' => 'required',
           'penyelenggara_diklat' => 'required',
-          'tahun_penyelenggaraan' => 'required',
+          'tahun_penyelenggaraan' => 'required|numeric',
           'lama_diklat_bulan' => 'numeric',
           'lama_diklat_hari' => 'numeric',
           'lama_diklat_jam' => 'numeric'

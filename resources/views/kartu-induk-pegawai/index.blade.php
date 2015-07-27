@@ -39,6 +39,7 @@
                       <td>Nama</td>
 											<td>Jabatan</td>
 											<td>Riwayat</td>
+											<td>Tampilkan</td>
                       <td>Ganti</td>
 											<td>Hapus</td>
                   </tr>
@@ -50,6 +51,7 @@
                       <td>{{ $value->nama_lengkap }}</td>
 											<td><a class="btn btn-xs btn-warning" href="{{ URL::to('kartu-induk-pegawai/' . $value->id . '/jabatan') }}"><span class="glyphicon glyphicon-queen" aria-hidden="true"></span></a></td>
                       <td><a class="btn btn-xs btn-success" href="{{ URL::to('kartu-induk-pegawai/' . $value->id . '/riwayat') }}"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></a></td>
+											<td><a class="btn btn-xs btn-primary" href="{{ URL::to('kartu-induk-pegawai/' . $value->id) }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></td>
 											<td>
                           <a class="btn btn-xs btn-info" href="{{ URL::to('kartu-induk-pegawai/' . $value->id . '/edit') }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                         </td><td>

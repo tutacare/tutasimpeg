@@ -23,7 +23,7 @@ class RiwayatPangkatController extends Controller
      */
     public function index()
     {
-      $riwayat_pangkats = RiwayatPangkat::all();
+      $riwayat_pangkats = RiwayatPangkat::where('kartu_induk_pegawai_id', Session::get('ids'))->get();
       return view('riwayat-pangkat.index', [ 'riwayat_pangkat' => $riwayat_pangkats]);
     }
 

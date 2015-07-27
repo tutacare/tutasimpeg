@@ -20,7 +20,7 @@ class CreateJabatansTable extends Migration
             $table->string('unit_kerja', 100)->nullable();
             $table->string('keterangan_unit_kerja', 100)->nullable();
             $table->string('pangkat_golongan_ruang', 100)->nullable();
-            $table->date('tmt_pangkat')->nullable();
+            $table->date('tmt_pangkat')->nullable()->default(NULL);
             $table->string('masakerja_tahun', 10)->nullable();
             $table->string('masakerja_bulan', 10)->nullable();
             $table->string('pendidikan_terakhir', 100)->nullable();

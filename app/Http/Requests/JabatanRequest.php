@@ -24,7 +24,12 @@ class JabatanRequest extends Request
     public function rules()
     {
         return [
-            //
+          'jabatan' => 'required',
+          'unit_kerja' => 'required',
+          'pangkat_golongan_ruang' => 'required',
+          'tmt_pangkat' => 'required|date_format:"d-m-Y"',
+          'masakerja_tahun' => 'required|numeric',
+          'masakerja_bulan' => 'required|numeric'
         ];
     }
 }

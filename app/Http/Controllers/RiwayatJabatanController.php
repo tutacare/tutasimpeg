@@ -23,7 +23,7 @@ class RiwayatJabatanController extends Controller
      */
     public function index()
     {
-      $riwayat_jabatans = RiwayatJabatan::all();
+      $riwayat_jabatans = RiwayatJabatan::where('kartu_induk_pegawai_id', Session::get('ids'))->get();
       return view('riwayat-jabatan.index', [ 'riwayat_jabatan' => $riwayat_jabatans]);
     }
 

@@ -23,7 +23,7 @@ class RiwayatDiklatController extends Controller
      */
     public function index()
     {
-      $riwayat_diklats = RiwayatDiklat::all();
+      $riwayat_diklats = RiwayatDiklat::where('kartu_induk_pegawai_id', Session::get('ids'))->get();
       return view('riwayat-diklat.index', [ 'riwayat_diklat' => $riwayat_diklats]);
     }
 

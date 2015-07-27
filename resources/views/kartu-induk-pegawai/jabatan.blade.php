@@ -54,8 +54,12 @@
               <div class="form-inline">
               <div class="form-group">
                 {!! Form::label('tmt_pangkat', 'TMT Pangkat:') !!}
-                {!! Form::text('tmt_pangkat', date('d-m-Y', strtotime($jabatan->tmt_pangkat)), array('class' => 'form-control', 'id' => 'tmt_pangkat', 'aria-describedby' => 'inputDate')) !!}
-                {!! Form::label('masa_kerja', 'Masa Kerja:') !!}
+								  @if($jabatan->tmt_pangkat <> NULL)
+                		{!! Form::text('tmt_pangkat', date('d-m-Y', strtotime($jabatan->tmt_pangkat)), array('class' => 'form-control', 'id' => 'tmt_pangkat', 'aria-describedby' => 'inputDate')) !!}
+									@else
+								    {!! Form::text('tmt_pangkat', null, array('class' => 'form-control', 'id' => 'tmt_pangkat')) !!}
+								  @endif
+								{!! Form::label('masa_kerja', 'Masa Kerja:') !!}
                 {!! Form::text('masakerja_tahun', Input::old('masakerja_tahun'), array('class' => 'form-control', 'size' => '2')) !!}
                 {!! Form::label('tahun', 'Tahun') !!}
                 {!! Form::text('masakerja_bulan', Input::old('masakerja_bulan'), array('class' => 'form-control', 'size' => '2')) !!}

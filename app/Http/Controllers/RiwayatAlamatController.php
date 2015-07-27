@@ -23,7 +23,7 @@ class RiwayatAlamatController extends Controller
      */
     public function index()
     {
-      $riwayat_alamats = RiwayatAlamat::all();
+      $riwayat_alamats = RiwayatAlamat::where('kartu_induk_pegawai_id', Session::get('ids'))->get();
       return view('riwayat-alamat.index', [ 'riwayat_alamat' => $riwayat_alamats]);
     }
 
