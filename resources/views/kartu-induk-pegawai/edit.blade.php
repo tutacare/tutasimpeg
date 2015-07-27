@@ -56,7 +56,7 @@
 
     							<div class="form-group">
     								{!! Form::label('tgl_masuk_pegawai', 'Masuk Pegawai (dd-mm-yyyy)') !!}
-										<input type="text" id="tgl_masuk_pegawai" value='{{date('d-m-Y', strtotime($kartuIndukPegawai->tgl_lahir))}}' name="tgl_masuk_pegawai" class="form-control">
+										<input type="text" id="tgl_masuk_pegawai" value='{{date('d-m-Y', strtotime($kartuIndukPegawai->tgl_masuk_pegawai))}}' name="tgl_masuk_pegawai" class="form-control">
                   </div>
 
     							<div class="form-group">
