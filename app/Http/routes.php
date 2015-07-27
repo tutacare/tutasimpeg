@@ -20,6 +20,7 @@ Route::get('api/kartu-induk-pegawai', 'KartuIndukPegawaiController@getApiAja');
 Route::post('kartu-induk-pegawai/search', 'KartuIndukPegawaiController@search');
 Route::get('kartu-induk-pegawai/{id}/jabatan', 'KartuIndukPegawaiController@jabatan');
 Route::get('kartu-induk-pegawai/{id}/riwayat', 'KartuIndukPegawaiController@riwayat');
+Route::get('kartu-induk-pegawai/{id}/cetak', 'KartuIndukPegawaiController@cetak');
 Route::resource('jabatan', 'JabatanController');
 
 Route::resource('riwayat-pendidikan', 'RiwayatPendidikanController');

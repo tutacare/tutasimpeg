@@ -67,15 +67,14 @@ class KartuIndukPegawaiController extends Controller
       $kartu_induk_pegawais->save();
 
       // process image
-      $image = $request->file('foto');
-      if(!empty($image)) {
+      if(Input::hasFile('foto')) {
         $fotoName = 'peg' . $kartu_induk_pegawais->id . '.' .
         $request->file('foto')->getClientOriginalExtension();
         $request->file('foto')->move(
         base_path() . '/public/images/pegawai/', $fotoName
         );
         $img = Image::make(base_path() . '/public/images/pegawai/' . $fotoName);
-        $img->resize(100, null, function ($constraint) {
+        $img->resize(150, null, function ($constraint) {
           $constraint->aspectRatio();
         });
         $img->save();
@@ -164,15 +163,14 @@ class KartuIndukPegawaiController extends Controller
       $kartu_induk_pegawais->save();
 
       // process image
-      $image = $request->file('foto');
-      if(!empty($image)) {
+      if(Input::hasFile('foto')) {
         $fotoName = 'peg' . $kartu_induk_pegawais->id . '.' .
         $request->file('foto')->getClientOriginalExtension();
         $request->file('foto')->move(
         base_path() . '/public/images/pegawai/', $fotoName
         );
         $img = Image::make(base_path() . '/public/images/pegawai/' . $fotoName);
-        $img->resize(100, null, function ($constraint) {
+        $img->resize(150, null, function ($constraint) {
           $constraint->aspectRatio();
         });
         $img->save();
@@ -238,4 +236,29 @@ class KartuIndukPegawaiController extends Controller
         'kartu_induk_pegawai' => $kartu_induk_pegawais
         ]);
     }
+
+    public function cetak($id)
+    {
+      $kartu_induk_pegawais = KartuIndukPegawai::find($id);
+      $jabatans = Jabatan::where('kartu_induk_pegawai_id', $id)->first();
+      $riwayat_pendidikans = RiwayatPendidikan::where('kartu_induk_pegawai_id', $id)->get();
+      $riwayat_pangkats = RiwayatPangkat::where('kartu_induk_pegawai_id', $id)->get();
+      $riwayat_jabatans = Riwayatjabatan::where('kartu_induk_pegawai_id', $id)->get();
+      $riwayat_diklats = RiwayatDiklat::where('kartu_induk_pegawai_id', $id)->get();
+      $riwayat_suami_istris = RiwayatSuamiIstri::where('kartu_induk_pegawai_id', $id)->get();
+      $riwayat_anaks = RiwayatAnak::where('kartu_induk_pegawai_id', $id)->get();
+      $riwayat_alamats = RiwayatAlamat::where('kartu_induk_pegawai_id', $id)->get();
+      return view('kartu-induk-pegawai.cetak', [
+        'kartu_induk_pegawai' => $kartu_induk_pegawais,
+        'jabatan' => $jabatans,
+        'riwayat_pendidikan' => $riwayat_pendidikans,
+        'riwayat_pangkat' => $riwayat_pangkats,
+        'riwayat_jabatan' => $riwayat_jabatans,
+        'riwayat_diklat' => $riwayat_diklats,
+        'riwayat_suami_istri' => $riwayat_suami_istris,
+        'riwayat_anak' => $riwayat_anaks,
+        'riwayat_alamat' => $riwayat_alamats
+        ]);
+    }
+
 }

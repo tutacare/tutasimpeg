@@ -9,10 +9,13 @@
 				<div class="panel-body">
 
           <div class="row">
-						<div class="col-md-6">
-        <h3>NIP: {{$kartu_induk_pegawai->nip}} - Nama: {{$kartu_induk_pegawai->nama_lengkap}}</h3>
+						<div class="col-md-8">
+        <table width="100%">
+					<tr><td width="10%"><h3>NIP</h3></td><td width="5%"><h3>:</h3></td><td width="85%"><h3>{{$kartu_induk_pegawai->nip}}</h3></td></tr>
+					<tr><td width="10%"><h3>Nama</h3></td><td width="5%"><h3>:</h3></td><td width="85%"><h3>{{$kartu_induk_pegawai->nama_lengkap}}</h3></td></tr>
+				</table>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-4">
 					<div class="form-group pull-right">
 						<img src="/images/pegawai/{{$kartu_induk_pegawai->foto}}" />
 					</div>
@@ -22,7 +25,7 @@
   <tr><td><strong>Karpeg:</strong></td><td>{{$kartu_induk_pegawai->karpeg}}</td><td><strong>Karis/Karsu:</strong></td><td>{{$kartu_induk_pegawai->karis_karsu}}</td><td><strong>Tempat Lahir:</strong></td><td>{{$kartu_induk_pegawai->tempat_lahir}}</td></tr>
   <tr><td><strong>Tanggal Lahir:</strong></td><td>{{ date('d-m-Y', strtotime($kartu_induk_pegawai->tgl_lahir)) }}</td><td><strong>Jenis Kelamin:</strong></td><td>{{$kartu_induk_pegawai->jenis_kelamin}}</td><td><strong>Status Perkawinan:</strong></td> <td>{{$kartu_induk_pegawai->status_perkawinan}}</td></tr>
   <tr><td><strong>Masuk Pegawai:</strong></td><td>{{ date('d-m-Y', strtotime($kartu_induk_pegawai->tgl_masuk_pegawai)) }}</td><td><strong>Status Kepegawaian:</strong></td><td>{{$kartu_induk_pegawai->status_kepegawaian}}</td><td><strong>Agama:</strong></td><td>{{$kartu_induk_pegawai->agama}}</td></tr>
-	<tr><td><strong>TGl. Pensiun:</strong></td><td>{{ date('d-m-Y', strtotime($kartu_induk_pegawai->tgl_pensiun)) }}</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+	<tr><td><strong>Tanggal Pensiun:</strong></td><td>{{ date('d-m-Y', strtotime($kartu_induk_pegawai->tgl_pensiun)) }}</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 </table>
 
 <hr />
@@ -260,7 +263,9 @@
 
 </div>
 
-
+<div class="pull-right">
+<a href="{{ URL::to('kartu-induk-pegawai/' . $kartu_induk_pegawai->id . '/cetak') }}" class="btn btn-primary" role="button">Cetak</a>
+</div>
 				</div>
 			</div>
 		</div>
