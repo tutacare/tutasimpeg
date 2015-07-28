@@ -195,7 +195,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => 'Collective\Html\FormFacade',
         'Html'      => 'Collective\Html\HtmlFacade',
-        'Image' 	=> 'Intervention\Image\Facades\Image',
+        'Image' 	  => 'Intervention\Image\Facades\Image',
+        'Carbon'    => 'Carbon\Carbon',
 
     ],
 

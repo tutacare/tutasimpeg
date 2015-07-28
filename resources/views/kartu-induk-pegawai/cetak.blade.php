@@ -22,7 +22,8 @@
   <tr><td><strong>Tempat Lahir:</strong></td><td>{{$kartu_induk_pegawai->tempat_lahir}}</td><td><strong>Tanggal Lahir:</strong></td><td>{{ date('d-m-Y', strtotime($kartu_induk_pegawai->tgl_lahir)) }}</td></tr>
   <tr><td><strong>Jenis Kelamin:</strong></td><td>{{$kartu_induk_pegawai->jenis_kelamin}}</td><td><strong>Status Perkawinan:</strong></td> <td>{{$kartu_induk_pegawai->status_perkawinan}}</td></tr>
   <tr><td><strong>Masuk Pegawai:</strong></td><td>{{ date('d-m-Y', strtotime($kartu_induk_pegawai->tgl_masuk_pegawai)) }}</td><td><strong>Status Kepegawaian:</strong></td><td>{{$kartu_induk_pegawai->status_kepegawaian}}</td></tr>
-  <tr><td><strong>Agama:</strong></td><td>{{$kartu_induk_pegawai->agama}}</td><td><strong>Tanggal Pensiun:</strong></td><td>{{ date('d-m-Y', strtotime($kartu_induk_pegawai->tgl_pensiun)) }}</td></tr>
+  <tr><td><strong>Agama:</strong></td><td>{{$kartu_induk_pegawai->agama}}</td><td><strong>Umur:</strong></td><td>{{Carbon::createFromDate(date('Y', strtotime($kartu_induk_pegawai->tgl_lahir)))->diff(Carbon::now())->format('%y Tahun')}}</td></tr>
+	<tr><td><strong>Tanggal Pensiun:</strong></td><td>{{ date('d-m-Y', strtotime($kartu_induk_pegawai->tgl_pensiun)) }}</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 </table>
 
 <hr />
@@ -30,7 +31,7 @@
 <table class="table table-striped">
   <tr><td><strong>Jabatan:</strong></td><td>{{$jabatan->jabatan}}</td><td><strong>Unit Kerja:</strong></td><td>{{$jabatan->unit_kerja}}</td></tr>
   <tr><td><strong>Keterangan Unit Kerja:</strong></td><td>{{$jabatan->keterangan_unit_kerja}}</td><td><strong>Pangkat - Gol/Ruang:</strong></td><td>{{$jabatan->pangkat_golongan_ruang}}</td></tr>
-  <tr><td><strong>TMT. Pangkat:</strong></td><td>{{ date('d-m-Y', strtotime($jabatan->tmt_pangkat)) }}</td><td><strong>Masa Kerja:</strong></td><td>{{$jabatan->masakerja_tahun}} Tahun {{$jabatan->masakerja_bulan}} Bulan</td></tr>
+  <tr><td><strong>TMT. Pangkat:</strong></td><td>@if($jabatan->tmt_pangkat <> NULL) {{ date('d-m-Y', strtotime($jabatan->tmt_pangkat)) }} @else &nbsp; @endif</td><td><strong>Masa Kerja:</strong></td><td>{{$jabatan->masakerja_tahun}} Tahun {{$jabatan->masakerja_bulan}} Bulan</td></tr>
   <tr><td><strong>Pendidikan Terakhir:</strong></td><td>{{$jabatan->pendidikan_terakhir}}</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 </table>
 

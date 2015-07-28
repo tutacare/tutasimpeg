@@ -20,6 +20,7 @@
               <li><a href="{{ url('/kartu-induk-pegawai') }}">Kartu Induk Pegawai</a></li>
             </ul>
           </li>
+          <li><a href="{{ url('/statistik') }}">Statistik</a></li>
         @endif
       </ul>
 

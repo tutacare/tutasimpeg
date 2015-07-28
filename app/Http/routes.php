@@ -22,6 +22,9 @@ Route::get('kartu-induk-pegawai/{id}/jabatan', 'KartuIndukPegawaiController@jaba
 Route::get('kartu-induk-pegawai/{id}/riwayat', 'KartuIndukPegawaiController@riwayat');
 Route::get('kartu-induk-pegawai/{id}/cetak', 'KartuIndukPegawaiController@cetak');
 Route::resource('jabatan', 'JabatanController');
+Route::resource('statistik', 'StatistikController');
+Route::get('api/chart-pegawai-usia', 'StatistikController@pegawaiUsia');
+Route::get('api/chart-pegawai-usia-count', 'StatistikController@pegawaiUsiaCount');
 
 Route::resource('riwayat-pendidikan', 'RiwayatPendidikanController');
 Route::resource('riwayat-pangkat', 'RiwayatPangkatController');
