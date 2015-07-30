@@ -32,10 +32,11 @@
             <div class="col-md-8">
               Petunjuk Pengisian File Excel:
               <ul>
-                <li><strong>TGl_LAHIR</strong> : dengan format dd-mm-yyyy contoh: 20-12-2015</li>
+                <li><strong>TGl_LAHIR</strong> : dengan format <code>dd-mm-yyyy</code> contoh: 20-12-2015</li>
                 <li><strong>JENIS_KELAMIN</strong> : dengan pilihan dan penulisan Pria / Wanita</li>
-                <li><strong>TGL_MASUK_PEGAWAI</strong> : dengan format dd-mm-yyyy contoh: 20-12-2015</li>
-								<li><strong>TGL_PENSIUN</strong> : dengan format dd-mm-yyyy contoh: 20-12-2015</li>
+                <li><strong>TGL_MASUK_PEGAWAI</strong> : dengan format <code>dd-mm-yyyy</code> contoh: 20-12-2015</li>
+								<li><strong>TGL_PENSIUN</strong> : dengan format <code>dd-mm-yyyy</code> contoh: 20-12-2015</li>
+								<li>Rumus excel untuk menentukan TGL_PENSIUN : <code>=DATE(YEAR(F2)+55,MONTH(F2),DAY(F2))</code> dimana (F2) adalah kolom TGL_LAHIR</li>
               </ul>
               <a href="{{ url('/dlfile1') }}">Download Format File Kartu Induk Pegawai Excel</a>
 
