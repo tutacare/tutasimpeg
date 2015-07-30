@@ -28,6 +28,8 @@ Route::get('api/chart-pegawai-usia-count', 'StatistikController@pegawaiUsiaCount
 Route::get('import-file', 'ImportFileController@importFile');
 Route::post('upload-file', 'ImportFileController@uploadFile');
 Route::get('dlfile1', 'ImportFileController@downloadFile1');
+Route::get('export-file', 'ExportFileController@exportFile');
+Route::get('export-kartu-induk-pegawai', 'ExportFileController@doExport');
 
 Route::resource('riwayat-pendidikan', 'RiwayatPendidikanController');
 Route::resource('riwayat-pangkat', 'RiwayatPangkatController');

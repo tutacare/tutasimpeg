@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\KartuIndukPegawai, App\Jabatan;
-use Input, Session, Redirect, Validator;
+use Input, Session, Redirect;
 use Excel;
 
 class ImportFileController extends Controller
@@ -46,7 +46,7 @@ class ImportFileController extends Controller
               $kartu_induk_pegawais->status_kepegawaian = $row->status_kepegawaian;
               $kartu_induk_pegawais->agama = $row->agama;
               $kartu_induk_pegawais->jenis_kepegawaian = $row->jenis_kepegawaian;
-              $kartu_induk_pegawais->tgl_pensiun = date("Y-m-d", strtotime($row->tgl_lahir));
+              $kartu_induk_pegawais->tgl_pensiun = date("Y-m-d", strtotime($row->tgl_pensiun));
               $kartu_induk_pegawais->foto = 'no-foto.png';
               $kartu_induk_pegawais->save();
               //process jabatan

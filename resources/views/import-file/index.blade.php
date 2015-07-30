@@ -22,9 +22,11 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              {!! Form::label('file', 'File') !!}
+              {!! Form::label('file', 'File Excel') !!}
               {!! Form::file('file', Input::old('file'), array('class' => 'form-control')) !!}
             </div>
+						{!! Form::submit('Import Excel', array('class' => 'btn btn-primary')) !!}
+		        {!! Form::close() !!}
           </div>
 
             <div class="col-md-8">
@@ -33,13 +35,13 @@
                 <li><strong>TGl_LAHIR</strong> : dengan format dd-mm-yyyy contoh: 20-12-2015</li>
                 <li><strong>JENIS_KELAMIN</strong> : dengan pilihan dan penulisan Pria / Wanita</li>
                 <li><strong>TGL_MASUK_PEGAWAI</strong> : dengan format dd-mm-yyyy contoh: 20-12-2015</li>
+								<li><strong>TGL_PENSIUN</strong> : dengan format dd-mm-yyyy contoh: 20-12-2015</li>
               </ul>
               <a href="{{ url('/dlfile1') }}">Download Format File Kartu Induk Pegawai Excel</a>
 
             </div>
         </div>
-        {!! Form::submit('Submit', array('class' => 'btn btn-primary')) !!}
-        {!! Form::close() !!}
+
 
 				</div>
 			</div>
