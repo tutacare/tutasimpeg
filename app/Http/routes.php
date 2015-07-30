@@ -25,6 +25,9 @@ Route::resource('jabatan', 'JabatanController');
 Route::resource('statistik', 'StatistikController');
 Route::get('api/chart-pegawai-usia', 'StatistikController@pegawaiUsia');
 Route::get('api/chart-pegawai-usia-count', 'StatistikController@pegawaiUsiaCount');
+Route::get('import-file', 'ImportFileController@importFile');
+Route::post('upload-file', 'ImportFileController@uploadFile');
+Route::get('dlfile1', 'ImportFileController@downloadFile1');
 
 Route::resource('riwayat-pendidikan', 'RiwayatPendidikanController');
 Route::resource('riwayat-pangkat', 'RiwayatPangkatController');

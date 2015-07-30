@@ -138,6 +138,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
         'Intervention\Image\ImageServiceProvider',
+        'Maatwebsite\Excel\ExcelServiceProvider',
 
         /*
          * Application Service Providers...
@@ -197,6 +198,7 @@ return [
         'Html'      => 'Collective\Html\HtmlFacade',
         'Image' 	  => 'Intervention\Image\Facades\Image',
         'Carbon'    => 'Carbon\Carbon',
+        'Excel' => 'Maatwebsite\Excel\Facades\Excel',
 
     ],
 
