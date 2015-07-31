@@ -17,7 +17,7 @@ Route::get('dashboard', 'DashboardController@index');
 Route::resource('kartu-induk-pegawai', 'KartuIndukPegawaiController');
 Route::get('api/kartu-induk-pegawai/{id}', 'KartuIndukPegawaiController@getApi');
 Route::get('api/kartu-induk-pegawai', 'KartuIndukPegawaiController@getApiAja');
-Route::post('kartu-induk-pegawai/search', 'KartuIndukPegawaiController@search');
+Route::get('kartu-induk-pegawai/search/key', 'KartuIndukPegawaiController@search');
 Route::get('kartu-induk-pegawai/{id}/jabatan', 'KartuIndukPegawaiController@jabatan');
 Route::get('kartu-induk-pegawai/{id}/riwayat', 'KartuIndukPegawaiController@riwayat');
 Route::get('kartu-induk-pegawai/{id}/cetak', 'KartuIndukPegawaiController@cetak');
@@ -30,6 +30,8 @@ Route::post('upload-file', 'ImportFileController@uploadFile');
 Route::get('dlfile1', 'ImportFileController@downloadFile1');
 Route::get('export-file', 'ExportFileController@exportFile');
 Route::get('export-kartu-induk-pegawai', 'ExportFileController@doExport');
+Route::get('image-kartu-induk-pegawai', 'KartuIndukPegawaiController@imageIndex');
+Route::post('image-kartu-induk-pegawai/', 'KartuIndukPegawaiController@imageUpdate');
 
 Route::resource('riwayat-pendidikan', 'RiwayatPendidikanController');
 Route::resource('riwayat-pangkat', 'RiwayatPangkatController');

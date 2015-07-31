@@ -12,10 +12,10 @@
           <a class="btn btn-small btn-success" href="{{ URL::to('kartu-induk-pegawai/create') }}">Buat Baru</a>
 						</div>
 						<div class="col-md-6">
-							{!! Form::open(array('url' => 'kartu-induk-pegawai/search', 'class' => 'form-inline')) !!}
+							{!! Form::open(array('url' => 'kartu-induk-pegawai/search/key', 'class' => 'form-inline', 'method' => 'GET')) !!}
 					<div class="form-group pull-right">
 						<label for="pencarian">Pencarian</label>
-					{!! Form::text('query', Input::old('query'), array('class' => 'form-control', 'required' => 'required')) !!}
+					{!! Form::text('q', $query, array('class' => 'form-control', 'required' => 'required')) !!}
 					<button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 					</div>
 
@@ -67,6 +67,13 @@
               @endforeach
               </tbody>
           </table>
+					<div class="pull-right">
+						@if($page == 'index')
+						{!! $kartu_induk_pegawai->render() !!}
+						@else
+						{!! $kartu_induk_pegawai->appends(['q' => $query])->render() !!}
+						@endif
+						</div>
 				</div>
 			</div>
 		</div>

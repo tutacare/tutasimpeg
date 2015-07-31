@@ -8,3 +8,7 @@
   background:#ffffff;
   box-shadow:0px 0px 10px #777777;
 }
+div.imgpegawai { position: relative; }
+div.imgpegawai div { width: 100%; position: absolute; top: 0; display: none; }
+div.imgpegawai img:hover + div { display: block; }
+div.imgpegawai div:hover { display: block; }

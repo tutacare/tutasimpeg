@@ -30,6 +30,6 @@
 <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('/js/jquery-ui.js') }}"></script>
 <script src="{{ asset('/js/jquery-ui-timepicker-addon.min.js') }}"></script>
-<script src="{{ asset('/js/kartu-induk-pegawai.js') }}"></script>
+<script src="{{ asset('/js/tutasimpeg.js') }}"></script>
 </body>
 </html>

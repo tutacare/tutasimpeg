@@ -13,7 +13,7 @@ use App\RiwayatSuamiIstri, App\RiwayatAnak;
 use App\RiwayatAlamat;
 use Input, Session, Redirect, Response;
 use App\Http\Requests\KartuIndukPegawaiRequest;
-use Image;
+use Image, Validator;
 
 class KartuIndukPegawaiController extends Controller
 {
@@ -28,8 +28,12 @@ class KartuIndukPegawaiController extends Controller
      */
     public function index()
     {
-        $kartu_induk_pegawais = KartuIndukPegawai::all();
-        return view('kartu-induk-pegawai.index', [ 'kartu_induk_pegawai' => $kartu_induk_pegawais]);
+        $kartu_induk_pegawais = KartuIndukPegawai::orderBy('nama_lengkap', 'asc')->paginate(30);
+        return view('kartu-induk-pegawai.index', [
+          'kartu_induk_pegawai' => $kartu_induk_pegawais,
+          'page' => 'index',
+          'query' => ''
+          ]);
     }
 
     /**
@@ -212,11 +216,17 @@ class KartuIndukPegawaiController extends Controller
 
     public function search()
     {
-      $kartu_induk_pegawais = KartuIndukPegawai::where('nip', 'LIKE', '%'. Input::get('query') .'%')
-      ->orWhere('nama_lengkap', 'LIKE', '%'. Input::get('query') .'%')
-      ->orWhere('tempat_lahir', 'LIKE', '%'. Input::get('query') .'%')
-      ->get();
-      return view('kartu-induk-pegawai.index', [ 'kartu_induk_pegawai' => $kartu_induk_pegawais]);
+      $key = Input::get('q');
+      $kartu_induk_pegawais = KartuIndukPegawai::where('nip', 'LIKE', '%'. $key .'%')
+      ->orWhere('nama_lengkap', 'LIKE', '%'. $key .'%')
+      ->orWhere('tempat_lahir', 'LIKE', '%'. $key .'%')
+      ->orderBy('nama_lengkap', 'asc')
+      ->paginate(30);
+      return view('kartu-induk-pegawai.index', [
+        'kartu_induk_pegawai' => $kartu_induk_pegawais,
+        'page' => 'search',
+        'query' => $key
+        ]);
     }
 
     public function jabatan($id)
@@ -259,6 +269,47 @@ class KartuIndukPegawaiController extends Controller
         'riwayat_anak' => $riwayat_anaks,
         'riwayat_alamat' => $riwayat_alamats
         ]);
+    }
+
+    public function imageIndex()
+    {
+      $kartu_induk_pegawais = KartuIndukPegawai::find(Session::get('ids'));
+      return view('image-kartu-induk-pegawai.edit', [
+        'kartuIndukPegawai' => $kartu_induk_pegawais
+        ]);
+    }
+    public function imageUpdate()
+    {
+      $rules = array(
+			'foto' => 'mimes:jpeg,bmp,png|required'
+			);
+			$validator = Validator::make(Input::all(), $rules);
+			if ($validator->fails())
+			{
+				 return Redirect::to('image-kartu-induk-pegawai')
+				->withErrors($validator);
+			} else {
+          $id = Input::get('id');
+          // process image
+          if(Input::hasFile('foto')) {
+            $fotoName = 'peg' . $id . '.' .
+            Input::file('foto')->getClientOriginalExtension();
+            Input::file('foto')->move(
+            base_path() . '/public/images/pegawai/', $fotoName
+            );
+            $img = Image::make(base_path() . '/public/images/pegawai/' . $fotoName);
+            $img->resize(150, null, function ($constraint) {
+              $constraint->aspectRatio();
+            });
+            $img->save();
+            $kartu_induk_pegawai_fotos = KartuIndukPegawai::find($id);
+            $kartu_induk_pegawai_fotos->foto = $fotoName;
+            $kartu_induk_pegawai_fotos->save();
+          }
+
+          Session::flash('message', 'Berhasil mengganti Foto');
+          return Redirect::to('image-kartu-induk-pegawai');
+      }
     }
 
 }

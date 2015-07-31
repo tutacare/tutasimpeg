@@ -22,6 +22,13 @@ jQuery( document ).ready(function( $ ) {
       });
   });
 
+  $('#myModal').on('shown.bs.modal', function () {
+    $(this).find('iframe').attr('src','/image-kartu-induk-pegawai')
+  })
+  $('#myModal').on('hidden.bs.modal', function () {
+    document.location.reload();
+  })
+
 });
 
 (function(){

@@ -7,7 +7,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Kartu Induk Pegawai</div>
 				<div class="panel-body">
-
+					{{Session::set('ids', $kartu_induk_pegawai->id)}}
           <div class="row">
 						<div class="col-md-8">
         <table width="100%">
@@ -16,11 +16,34 @@
 				</table>
 						</div>
 						<div class="col-md-4">
-					<div class="form-group pull-right">
+
+					<div class="imgpegawai form-group pull-right">
 						<img src="/images/pegawai/{{$kartu_induk_pegawai->foto}}" />
+						<div> <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+							 Ganti Foto
+						</button> </div>
 					</div>
 				</div>
 			</div>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">Ganti Foto Pegawai</h4>
+			      </div>
+			      <div class="modal-body">
+							  <img id="loader1" src="/images/tutasimpeg/Intersection.gif" width="100" height="100" alt="loading gif"/>
+			        <iframe frameborder="0" width="100%" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);'></iframe>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- End Modal -->
 <table class="table table-striped">
   <tr><td><strong>Karpeg:</strong></td><td>{{$kartu_induk_pegawai->karpeg}}</td><td><strong>Karis/Karsu:</strong></td><td>{{$kartu_induk_pegawai->karis_karsu}}</td><td><strong>Tempat Lahir:</strong></td><td>{{$kartu_induk_pegawai->tempat_lahir}}</td></tr>
   <tr><td><strong>Tanggal Lahir:</strong></td><td>{{ date('d-m-Y', strtotime($kartu_induk_pegawai->tgl_lahir)) }}</td><td><strong>Jenis Kelamin:</strong></td><td>{{$kartu_induk_pegawai->jenis_kelamin}}</td><td><strong>Status Perkawinan:</strong></td> <td>{{$kartu_induk_pegawai->status_perkawinan}}</td></tr>
@@ -271,4 +294,5 @@
 		</div>
 	</div>
 </div>
+
 @endsection
