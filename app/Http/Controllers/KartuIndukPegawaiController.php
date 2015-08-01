@@ -216,17 +216,24 @@ class KartuIndukPegawaiController extends Controller
 
     public function search()
     {
-      $key = Input::get('q');
-      $kartu_induk_pegawais = KartuIndukPegawai::where('nip', 'LIKE', '%'. $key .'%')
-      ->orWhere('nama_lengkap', 'LIKE', '%'. $key .'%')
-      ->orWhere('tempat_lahir', 'LIKE', '%'. $key .'%')
-      ->orderBy('nama_lengkap', 'asc')
-      ->paginate(30);
-      return view('kartu-induk-pegawai.index', [
-        'kartu_induk_pegawai' => $kartu_induk_pegawais,
-        'page' => 'search',
-        'query' => $key
-        ]);
+      if(Input::has('q'))
+      {
+        $key = Input::get('q');
+        $kartu_induk_pegawais = KartuIndukPegawai::where('nip', 'LIKE', '%'. $key .'%')
+        ->orWhere('nama_lengkap', 'LIKE', '%'. $key .'%')
+        ->orWhere('tempat_lahir', 'LIKE', '%'. $key .'%')
+        ->orderBy('nama_lengkap', 'asc')
+        ->paginate(30);
+        return view('kartu-induk-pegawai.index', [
+          'kartu_induk_pegawai' => $kartu_induk_pegawais,
+          'page' => 'search',
+          'query' => $key
+          ]);
+      }
+      else
+      {
+        return Redirect::to('kartu-induk-pegawai');
+      }
     }
 
     public function jabatan($id)

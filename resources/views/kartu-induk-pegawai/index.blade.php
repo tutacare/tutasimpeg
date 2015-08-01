@@ -15,7 +15,7 @@
 							{!! Form::open(array('url' => 'kartu-induk-pegawai/search/key', 'class' => 'form-inline', 'method' => 'GET')) !!}
 					<div class="form-group pull-right">
 						<label for="pencarian">Pencarian</label>
-					{!! Form::text('q', $query, array('class' => 'form-control', 'required' => 'required')) !!}
+					{!! Form::text('q', $query, array('class' => 'form-control')) !!}
 					<button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 					</div>
 
