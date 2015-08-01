@@ -5,7 +5,7 @@
 
 {!! Form::open(array('url' => 'image-kartu-induk-pegawai', 'files' => true)) !!}
 <table>
-  <tr><td>
+  <tr><td valign="top">
     {!! Html::ul($errors->all()) !!}
 
     @if (Session::has('message'))

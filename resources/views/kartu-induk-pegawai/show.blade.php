@@ -35,7 +35,7 @@
 			      </div>
 			      <div class="modal-body">
 							  <img id="loader1" src="/images/tutasimpeg/Intersection.gif" width="100" height="100" alt="loading gif"/>
-			        <iframe frameborder="0" width="100%" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);'></iframe>
+			        <iframe frameborder="0" width="100%" scrolling="no" id="iframe"></iframe>
 			      </div>
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
