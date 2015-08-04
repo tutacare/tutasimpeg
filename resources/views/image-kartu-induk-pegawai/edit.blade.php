@@ -5,7 +5,7 @@
 
 {!! Form::open(array('url' => 'image-kartu-induk-pegawai', 'files' => true)) !!}
 <table>
-  <tr><td valign="top">
+  <tr><td width="50%" valign="top">
     {!! Html::ul($errors->all()) !!}
 
     @if (Session::has('message'))
@@ -19,8 +19,8 @@
     </div>
     {!! Form::submit('Submit', array('class' => 'btn btn-primary')) !!}
     {!! Form::close() !!}
-</td><td>
-<img src="/images/pegawai/{{$kartuIndukPegawai->foto}}" />
+</td><td width="50%" align="right">
+<img height="150px" src="/images/pegawai/{{$kartuIndukPegawai->foto}}" class="img-rounded"/>
 </td></tr></table>
 
 

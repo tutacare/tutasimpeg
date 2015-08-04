@@ -18,7 +18,7 @@
 						<div class="col-md-4">
 
 					<div class="imgpegawai form-group pull-right">
-						<img src="/images/pegawai/{{$kartu_induk_pegawai->foto}}" />
+						<img src="/images/pegawai/{{$kartu_induk_pegawai->foto}}" class="img-thumbnail"/>
 						<div> <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
 							 Ganti Foto
 						</button> </div>
