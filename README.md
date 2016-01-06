@@ -1,3 +1,3 @@
 # TutaSIMPEG
 
-http://goo.gl/CLhyX5
+http://fly.mytuta.com/tutasimpeg
