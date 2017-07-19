@@ -20,7 +20,7 @@
 
 	<footer class="footer hidden-print">
       <div class="container">
-        <p class="text-muted">You are using <a href="http://goo.gl/CLhyX5">TutaSIMPEG</a> v0.1-alpha by <a href="https://twitter.com/tutacare">Irfan Mahfudz Guntur</a>.
+        <p class="text-muted">You are using <a href="/">TutaSIMPEG</a> v0.1-alpha by <a href="https://twitter.com/tutacare">Irfan Mahfudz Guntur</a>.
         </p>
       </div>
     </footer>
